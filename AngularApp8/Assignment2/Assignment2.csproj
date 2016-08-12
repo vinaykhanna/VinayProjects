@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="js\JavaScript.js" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
@@ -77,10 +78,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="js\JavaScript.js" />
     <Content Include="lib\angular.js" />
     <Content Include="lib\angular.min.js" />
+    <Content Include="VideoPractice\SimpleTable.html" />
     <Content Include="Question1.html" />
+    <Content Include="VideoPractice\filter_sort.html" />
+    <Content Include="VideoPractice\filter_limitTo.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

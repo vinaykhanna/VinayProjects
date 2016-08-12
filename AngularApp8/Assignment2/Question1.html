@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
-<html ng-app="Week2Module">
+<html ng-app="EmployeeModule">
 <head>
     <title></title>
 	<meta charset="utf-8" />
-    <script src="lib/angular.js"></script>
+    <script src="lib/angular.min.js"></script>
     <script src="js/JavaScript.js"></script>
 </head>
-<body ng-controller="Employeecontroller">
+<body ng-controller="EmployeeController">
     <table border="1">
         <thead>
             <tr>
@@ -17,10 +17,10 @@
         <tbody>
             <tr ng-repeat="employee in Employees">
                 <td>{{employee.Name}}</td>
-                <td>{{employee.DOB}}</td>
+                <td>{{employee.DateOfBirth}}</td>
                 <td>{{employee.Gender}}</td>
                 <td>{{employee.Salary}}</td>
-                <td>{{employee.SalaryCurrency}}</td>
+                <td>{{employee.Salary | currency:"Rs."}}</td>
             </tr>
         </tbody>
         </table>
