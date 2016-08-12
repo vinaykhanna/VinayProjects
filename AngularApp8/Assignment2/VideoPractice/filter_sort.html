@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html ng-app="EmployeeModule">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <script src="../lib/angular.min.js"></script>
+    <script src="../js/JavaScript.js"></script>
+</head>
+<body ng-controller="EmployeeController">
+    <b>
+        Sort by <select ng-model="SortBy">
+        <option>Name</option>
+        <option>DateOfBirth</option>
+        <option>Gender</option>
+        <option>Salary</option>
+        </select>
+    </b>
+    <br />
+    <span class="label">Ordered By: {{SortBy}}, Reverse Sort: {{reverseSort}}</span><br/><br/>
+    <table border="1">
+        <thead>
+            <tr>
+                <th  ng-click="SortBy='Name'; reverseSort = !reverseSort">
+                Name
+                <span ng-show="SortBy == 'Name'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </th>
+                <th>DateOfBirth</th>
+                <th>Gender</th>
+                <th>Salary</th>
+                <th>SalaryCurrency</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="employee in Employees | orderBy : SortBy:reverseSort">
+                <td>{{employee.Name}}</td>
+                <td>{{employee.DateOfBirth}}</td>
+                <td>{{employee.Gender}}</td>
+                <td>{{employee.Salary}}</td>
+                <td>{{employee.Salary | currency}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
