@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html ng-app="Week2Module">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="lib/angular.js"></script>
+    <script src="js/JavaScript.js"></script>
+</head>
+<body ng-controller="Employeecontroller">
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Name</td><td>DateOfBirth</td><td>Gender</td></td><td>Salary</td><td>SalaryCurrency</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr ng-repeat="employee in Employees">
+                <td>{{employee.Name}}</td>
+                <td>{{employee.DOB}}</td>
+                <td>{{employee.Gender}}</td>
+                <td>{{employee.Salary}}</td>
+                <td>{{employee.SalaryCurrency}}</td>
+            </tr>
+        </tbody>
+        </table>
+</body>
+</html>
