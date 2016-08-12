@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html ng-app="EmployeeModule">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <script src="../lib/angular.min.js"></script>
+    <script src="../js/JavaScript.js"></script>
+</head>
+<body ng-controller="EmployeeController">
+    <b>
+        number of rows to display <input type="number" ng-model="rowcount" step="1" min="0" max="4" />
+    </b>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>DateOfBirth</td>
+                <td>Gender</td>
+                <td>Salary</td>
+                <td>SalaryCurrency</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr ng-repeat="employee in Employees | limitTo:rowcount">
+                <td>{{employee.Name}}</td>
+                <td>{{employee.DateOfBirth}}</td>
+                <td>{{employee.Gender}}</td>
+                <td>{{employee.Salary}}</td>
+                <td>{{employee.Salary | currency}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
