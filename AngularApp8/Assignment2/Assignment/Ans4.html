@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Ans 3</title>
+    <meta charset="utf-8" />
+    <script src="../lib/angular.min.js"></script>
+    <script language="javascript">
+        var EmployeeModule = angular.module("EmployeeModule", [])
+            .filter("gender", function ()
+            {
+                return function (gender)
+                {
+                    if (gender == "male")
+                        return "1";
+                    if (gender == "female")
+                        return "2";
+                }
+            })
+
+            .controller("EmployeeController", function ($scope) {
+            $scope.Employees = [
+            {
+                Name: "ANUJ KUMAR", DateOfBirth: new Date("23-Nov-1978"), Gender: "male", Salary: 6789.90
+            },
+            {
+                Name: "AMIT KUMAR", DateOfBirth: new Date("17-Sept-1978"), Gender: "male", Salary: 678990.90
+            },
+            {
+                Name: "SUMIT KUMAR", DateOfBirth: new Date("15-Jun-1978"), Gender: "male", Salary: 67089.90
+            },
+            {
+                Name: "SWATI", DateOfBirth: new Date("11-Jan-1992"), Gender: "female", Salary: 65757.90
+            }
+            ];
+        });
+
+    </script>
+</head>
+<body ng-app="EmployeeModule">
+    <div ng-controller="EmployeeController">
+        <h1> Employee Details</h1>
+        <table border="1" >
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                    <th>Salary Currency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in Employees |  filter:searchText">
+                    <td>{{ employee.Name }}</td>
+                    <td>{{ employee.DateOfBirth | date:'mediumDate' }}</td>
+                    <td>{{ employee.Gender | gender }}</td>
+                    <td>{{ employee.Salary | number }}</td>
+                    <td>{{ employee.Salary |currency:"Rs" }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

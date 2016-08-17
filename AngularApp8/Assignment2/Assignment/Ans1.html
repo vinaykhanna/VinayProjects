@@ -5,23 +5,34 @@
     <meta charset="utf-8" />
 
     <script src="../lib/angular.min.js"></script>
-    <script src="../js/JavaScript.js"></script>
+    <script language="javascript">
+
+        var EmployeeModule = angular.module("EmployeeModule", []).controller("EmployeeController", function ($scope) {
+            $scope.Employees = [
+            {
+                Name: "ANUJ KUMAR", DateOfBirth: new Date("23-Nov-1978"), Gender: "male", Salary: 6789.90
+            },
+            {
+                Name: "AMIT KUMAR", DateOfBirth: new Date("17-Sept-1978"), Gender: "male", Salary: 678990.90
+            },
+            {
+                Name: "SUMIT KUMAR", DateOfBirth: new Date("15-Jun-1978"), Gender: "male", Salary: 67089.90
+            },
+            {
+                Name: "SWATI", DateOfBirth: new Date("11-Jan-1992"), Gender: "female", Salary: 65757.90
+            }
+            ];
+        });
+
+    </script>
 </head>
 <body ng-controller="EmployeeController">
-    <b>
-        Sort by <select ng-model="SortBy">
-        <option>Name</option>
-        <option>DateOfBirth</option>
-        <option>Gender</option>
-        <option>Salary</option>
-        </select>
-    </b>
-    <br />
-    <span class="label">Ordered By: {{SortBy}}, Reverse Sort: {{reverseSort}}</span><br/><br/>
+    
+    <h1> Employee Details</h1>
     <table border="1">
         <thead>
             <tr>
-                <th  ng-click="SortBy='Name'; reverseSort = !reverseSort">Name</th>
+                <th ng-click="SortBy='Name'; reverseSort = !reverseSort">Name</th>
                 <th ng-click="SortBy='DateOfBirth'; reverseSort = !reverseSort">DateOfBirth</th>
                 <th ng-click="SortBy='Gender'; reverseSort = !reverseSort">Gender</th>
                 <th ng-click="SortBy='Salary'; reverseSort = !reverseSort">Salary</th>

@@ -66,6 +66,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assignment\Ans4.html" />
+    <Content Include="Assignment\Ans1.html" />
+    <Content Include="Assignment\Ans2.html" />
+    <Content Include="Assignment\Ans3.html" />
+    <Content Include="Assignment\Ans5.html" />
+    <Content Include="Assignment\Ans6.html" />
     <Content Include="js\JavaScript.js" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
