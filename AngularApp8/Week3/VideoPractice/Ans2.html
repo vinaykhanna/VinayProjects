@@ -1,0 +1,38 @@
+﻿<!--<script src="../lib/angular.min.js"></script>-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../lib/angular.min.js"></script>
+    <script language="JavaScript">
+        var CalculatorService = angular.module('CalculatorService', [])
+            .service('Calculator', function () {
+            this.square = function (a) { return a * a };
+            });
+
+
+
+        var myApp = Angular.module('myApp', []);
+        myApp.factory('nameDisplay', function () {
+            return {
+                processString: function (input) {
+                    if (!input) {
+                        return input;
+                    }
+                    var output = "";
+                    for (var i = 0; i < input.length; i++) {
+                        if (i > 0 && input[i] == input[i].toUpperCase()) {
+                            output = output + " ";
+                        }
+                        output = output + input[i];
+                    }
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

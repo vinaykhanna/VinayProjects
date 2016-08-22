@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html ng-app="EmployeeModule">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <script src="../lib/angular.min.js"></script>
+    <script language="javascript">
+
+        var EmployeeModule = angular.module("EmployeeModule", []).controller("EmployeeController", function ($scope) {
+            $scope.Employees = [
+            {
+                Name: "ANUJ KUMAR", DateOfBirth: new Date("23-Nov-1978"), Gender: "male", Salary: 6789.90
+            },
+            {
+                Name: "AMIT KUMAR", DateOfBirth: new Date("17-Sept-1978"), Gender: "male", Salary: 678990.90
+            },
+            {
+                Name: "SUMIT KUMAR", DateOfBirth: new Date("15-Jun-1978"), Gender: "male", Salary: 67089.90
+            },
+            {
+                Name: "SWATI", DateOfBirth: new Date("11-Jan-1992"), Gender: "female", Salary: 65757.90
+            }
+            ];
+            $scope.items = ["Table", "List"];
+            $scope.selection = "List";
+            $scope.changeView = function (value) {
+                if (value == "Table")
+                { return true; }
+                else
+                    return false;
+            };
+        });
+
+    </script>
+</head>
+<body ng-controller="EmployeeController">
+    <div ng-controller="EmployeeController">
+        Select View<select name="SelectedView" ng-model="SelectedView">
+            <option selected value="Table">Table</option>
+            <option value="List">List</option>
+        </select><br>     
+      
+        <h1> Employee Details</h1>
+        <div ng-show="SelectedView == 'Table'">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th ng-click="SortBy='Name'; reverseSort = !reverseSort">Name</th>
+                        <th ng-click="SortBy='Gender'; reverseSort = !reverseSort">Gender</th>
+                        <th ng-click="SortBy='Salary'; reverseSort = !reverseSort">Salary</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="employee in Employees | orderBy : SortBy:reverseSort">
+                        <td>{{employee.Name}}</td>                      
+                        <td>{{employee.Gender}}</td>
+                        <td>{{employee.Salary}}</td>                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-show="SelectedView == 'List'">
+            <UL ng-repeat="employee in Employees | orderBy : SortBy:reverseSort">
+                <li><b>{{employee.Name}}</b></li>
+                <UL>
+                    <li>{{employee.Gender}}</li>
+                    <li>{{employee.Salary}}</li>
+                </UL>
+            </UL>
+        </div>
+    </div>
+
+
+</body>
+</html>
