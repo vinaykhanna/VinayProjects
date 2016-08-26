@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Assignment 4</title>
+</head>
+<script src="js/angular.js" type="text/javascript"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $interval, $filter) {
+        $scope.Timer = null;
+        $scope.Timer = $interval(function () {
+            var time = $filter('date')(new Date().toTimeString());
+            $scope.theTime = " The time is " + time;
+        }, 1000);
+    });
+</script>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <h3>
+            Time</h3>
+        <p>
+            {{theTime}}</p>
+    </div>
+</body>
+</html>

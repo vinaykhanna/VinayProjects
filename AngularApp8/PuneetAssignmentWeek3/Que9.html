@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Load XML And Show As li In Angular JS - SibeeshPassion </title>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/angular.js" type="text/javascript"></script>
+    <script src="js/xml2json.js"></script>
+</head>
+<body>
+    <div ng-app="httpApp" ng-controller="httpController">
+        <h1> Employee Details</h1>
+        <div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>EMP_ID</th>
+                        <th>EMP_Name</th>
+                        <th>EMP_DOB</th>
+                        <th>EMP_Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="employee in EMPLOYEES">
+                        <td>{{employee.EMP_ID}}</td>
+                        <td>{{employee.EMP_Name}}</td>
+                        <td>{{employee.EMP_DOB}}</td>
+                        <td>{{employee.EMP_Location}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        var app = angular.module('httpApp', []);
+        app.controller('httpController', function ($scope, $http) {
+            $http.get("Employee.xml",
+                    {
+                        transformResponse: function (cnv) {
+                            var x2js = new X2JS();
+                            var aftCnv = x2js.xml_str2json(cnv);
+                            return aftCnv;
+                        }
+                    })
+            .success(function (response) {
+                $scope.EMPLOYEES = response.EMPLOYEES.EMPLOYEE;
+                console.log(response);
+            });
+        });
+    </script>
+</body>
+</html>

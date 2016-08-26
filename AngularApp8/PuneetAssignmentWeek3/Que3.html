@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>$window to open close and resize window</title>
+</head>
+<script src="js/angular.js" type="text/javascript"></script>
+<script>
+    var myApp = angular.module('myApp', []);
+
+    myApp.controller('myCtrl', function ($scope, $window) {
+        var openv = "";
+        $scope.openWindow = function () {
+            openv = $window.open('http://www.infogain.com', 'Infogain', 'status=1');
+        };
+        $scope.resizeWindow = function () {
+            openv.close();
+            openv = $window.open('http://www.infogain.com', 'Infogain', 'location=1,status=1,scrollbars=1, width=500,height=500');
+        };
+        $scope.closeWindow = function () {
+            openv.close();
+        };
+    });
+</script>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+    <h2>Using $window to open close and resize window</h2>
+        <button ng-click="openWindow()">
+            Open Window</button>
+            <button ng-click="resizeWindow()">
+            Resize Window</button>
+        <button ng-click="closeWindow()">
+            Close Window</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>paging</title>
+    <script src="js/angular.js" type="text/javascript"></script>
+    <script src="js/data-que6.js" type="text/javascript"></script>
+
+    <script src="js/dirPagination.js" type="text/javascript"></script>
+    <link href="css/pagination.css" rel="stylesheet" type="text/css" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    
+
+
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+              <ul dir-paginate="country in data.RestResponse.result | itemsPerPage : 20">
+                <li>{{country.name}}</li>
+                <ul>
+                    <li>{{country.alpha2_code}}</li>
+                    <li>{{country.alpha3_code }}</li>
+                </ul>
+            </ul>
+    </div>
+    <div id="pagging">
+    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+    
+    </div></body>
+</html>

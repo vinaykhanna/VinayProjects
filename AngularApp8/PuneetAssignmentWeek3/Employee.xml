@@ -1,0 +1,11 @@
+﻿<EMPLOYEES>
+    <EMPLOYEE>
+      <EMP_ID>1</EMP_ID> <EMP_Name>John</EMP_Name><EMP_DOB>17-JAN-1981</EMP_DOB> <EMP_Location>Doe</EMP_Location>
+    </EMPLOYEE>
+    <EMPLOYEE>
+       <EMP_ID>2</EMP_ID>  <EMP_Name>Anna</EMP_Name><EMP_DOB>12-AUG-1980</EMP_DOB> <EMP_Location>Smith</EMP_Location>
+    </EMPLOYEE>
+    <EMPLOYEE>
+       <EMP_ID>3</EMP_ID>  <EMP_Name>Peter</EMP_Name> <EMP_DOB>14-SEP-1985</EMP_DOB><EMP_Location>Jones</EMP_Location>
+    </EMPLOYEE>
+</EMPLOYEES>

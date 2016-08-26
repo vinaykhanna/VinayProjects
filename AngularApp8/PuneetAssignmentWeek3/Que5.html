@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/angular.js"></script>
+    <title>Built-in service examples</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div>
+        <h2>
+            Service 1</h2>
+        <p>
+            $document displays title of page. TThis page title is: <b ng-bind="title"></b>
+        </p>
+        <p>
+            window.document title: <b ng-bind="windowTitle"></b>
+        </p>
+    </div>
+    <div>
+        <h2>
+            Service 2</h2>
+        <p>
+            The $interval service runs a function every specified millisecond.</p>
+        <h1>
+            {{theTime}}</h1>
+    </div>
+    <div>
+        <h2>
+            Service 3</h2>
+        <p>
+            The $timeout service runs a function after a sepecified number of milliseconds.</p>
+        <h1>
+            {{myHeader}}</h1>
+    </div>
+    <div>
+        <h2>
+            Service 4</h2>
+        <input type="button" value="clickMe" ng-click="displayMessage('This is window service !')" />
+    </div>
+    <div>
+        <h2>
+            Service 5</h2>
+        <p>
+            This example uses the built-in $location service to get the absolute url of the
+            page.</p>
+        <h3>
+            {{myUrl}}</h3>
+    </div>
+    <div>
+        <h2>
+            Service 6</h2>
+        <p>
+            Please look into browser console
+            </p>
+    </div>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope, $location, $timeout, $interval, $log, $window, $document) {
+            //1
+            $scope.myUrl = $location.absUrl();
+            //2
+            $scope.myHeader = "Hello World!";
+            $timeout(function () {
+                $scope.myHeader = "This comes from time out service";
+            }, 2000);
+            //3
+            $scope.theTime = new Date().toLocaleTimeString();
+            $interval(function () {
+                $scope.theTime = new Date().toLocaleTimeString();
+            }, 1000);
+            // 4
+            $scope.displayMessage = function (message) {
+                $window.alert(message);
+            };
+            //5
+            $scope.title = $document[0].title;
+            $scope.windowTitle = angular.element(window.document)[0].title;
+            //6
+            $log.log("This is log services ");
+
+        });
+    </script>
+</body>
+</html>

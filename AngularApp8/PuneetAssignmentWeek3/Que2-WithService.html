@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Service Method</title>
+    <script src="js/angular.js" type="text/javascript"></script>
+    <script src="js/app-service.js" type="text/javascript"></script>
+    <script src="js/service.js" type="text/javascript"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+     <h2>Service Method</h2>
+        <table>
+            <tr>
+                <td>
+                    First name of employee
+                </td>
+                <td>
+                    <input type="text" ng-model="inputFirstName" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Middle name of employee
+                </td>
+                <td>
+                    <input type="text" ng-model="inputMiddleName" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Last name of employee
+                </td>
+                <td>
+                    <input type="text" ng-model="inputLastName" />
+                </td>
+            </tr>
+           <br />
+
+             <tr>
+                <td>
+                   <b> Output String</b>
+                </td>
+                <td>
+                    <input type="text" ng-model="output" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                  
+                </td>
+                <td>
+                    <input type="button" value="process" ng-click="transformstring(inputFirstName, inputMiddleName, inputLastName)" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

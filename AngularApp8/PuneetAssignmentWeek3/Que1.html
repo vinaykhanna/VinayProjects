@@ -1,0 +1,62 @@
+﻿<!--<script src="js/angular.js" type="text/javascript"></script>-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="js/angular.js" type="text/javascript"></script>
+    <script src="js/app-Question.js"></script>
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        <h1>
+            Employee Detail</h1>
+        <br />
+        Select View:
+        <select name="selectview" id="selectview" ng-model="SelectedView">
+            <option selected value="1">Table</option>
+            <option value="2">List</option>
+        </select>
+        <br />
+        <br />
+        <div ng-show="SelectedView == '1'">
+            <table border="1" cellpadding="5" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td>
+                            <b>Name</b>
+                        </td>
+                        <td>
+                            <b>Gender</b>
+                        </td>
+                        <td>
+                            <b>Salary</b>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="employee in employees">
+                        <td>
+                            {{employee.name }}
+                        </td>
+                        <td>
+                            {{employee.gender}}
+                        </td>
+                        <td>
+                            {{employee.salary }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-show="SelectedView == '2'">
+            <ul ng-repeat="employee in employees">
+                <li>{{employee.name}}</li>
+                <ul>
+                    <li>{{employee.gender}}</li>
+                    <li>{{employee.salary }}</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
